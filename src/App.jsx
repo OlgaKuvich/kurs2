@@ -8,15 +8,14 @@ import PopBrowse from "./components/PopBrowse/PopBrowse";
 import { useEffect, useState } from "react";
 import { cardList } from "./data";
 
-
 function App() {
   const [cards, setCards] = useState(cardList);
   const [isLoded, setIsLoded] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setIsLoded(false)
-    }, 2000)
-  }, [])
+      setIsLoded(false);
+    }, 2000);
+  }, []);
 
   function addCard() {
     setCards([
@@ -26,11 +25,10 @@ function App() {
         theme: "Web Design",
         title: "Название задачи",
         date: "30.10.23",
-      //  status: "No status",
-      }
-    ]
-  )
-}
+        status: "Без статуса",
+      },
+    ]);
+  }
 
   return (
     <Wrapper>

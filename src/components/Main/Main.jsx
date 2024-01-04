@@ -14,15 +14,15 @@ function Main({ cardList, isLoded }) {
       <div className="container">
         <div className="main__block">
           <div className="main__content">
-          {
-            isLoded? 'Loding...' : statusList.map((item) => (
-              <Column 
-              key={item}
-              title={item} 
-              cardList={cardList.filter((card) => card.status === item)}
-              />
-            ))
-          }
+            {isLoded
+              ? "Loding..."
+              : statusList.map((item) => (
+                  <Column
+                    key={item}
+                    title={item}
+                    cardList={cardList.filter((card) => card.status === item)}
+                  />
+                ))}
           </div>
         </div>
       </div>

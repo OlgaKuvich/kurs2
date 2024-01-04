@@ -8,16 +8,16 @@ function Column({ title, cardList }) {
       </div>
       <div className="cards">
         {cardList.map((card) => (
-          <Card 
-          name={card.title}
-          theme={card.them}
-          date={card.date}
-          key={card.id}
+          <Card
+            name={card.title}
+            theme={card.them}
+            date={card.date}
+            key={card.id}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default Column;
