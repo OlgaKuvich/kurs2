@@ -1,4 +1,5 @@
 import Column from "../Column/Column";
+import { Container } from "../Common/Common.styled";
 
 const statusList = [
   "Без статуса",
@@ -11,7 +12,7 @@ const statusList = [
 function Main({ cardList, isLoded }) {
   return (
     <main className="main">
-      <div className="container">
+      <Container>
         <div className="main__block">
           <div className="main__content">
             {isLoded
@@ -25,7 +26,7 @@ function Main({ cardList, isLoded }) {
                 ))}
           </div>
         </div>
-      </div>
+      </Container>
     </main>
   );
 }
