@@ -1,11 +1,14 @@
 import {
   CardBtn,
-  // CardBtnDiv,
+  CardBtnDiv,
   CardContent,
   CardDate,
+  CardDateP,
+  CardDateSvg,
   CardGroup,
   CardTheme,
   CardThemeText,
+  CardTitle,
   CardsItem,
   CardsWrapper,
 } from "./Card.styled";
@@ -30,24 +33,24 @@ function Card({ theme, name, date }) {
     <CardsItem>
       <CardsWrapper>
         <CardGroup>
-         {console.log(theme)}
+          {console.log(theme)}
           <CardTheme $themeColor={color}>
             <CardThemeText>{theme}</CardThemeText>
           </CardTheme>
           <a href="#popBrowse" target="_self">
             <CardBtn>
-              <div />
-              <div />
-              <div />
+              <CardBtnDiv />
+              <CardBtnDiv />
+              <CardBtnDiv />
             </CardBtn>
           </a>
         </CardGroup>
         <CardContent>
           <a href="" target="_blank">
-            <h3 className="card__title">{name}</h3>
+            <CardTitle>{name}</CardTitle>
           </a>
           <CardDate>
-            <svg
+            <CardDateSvg
               xmlns="http://www.w3.org/2000/svg"
               width={13}
               height={13}
@@ -74,8 +77,8 @@ function Card({ theme, name, date }) {
                   <rect width={13} height={13} fill="white" />
                 </clipPath>
               </defs>
-            </svg>
-            <p>{date}</p>
+            </CardDateSvg>
+            <CardDateP>{date}</CardDateP>
           </CardDate>
         </CardContent>
       </CardsWrapper>

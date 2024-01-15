@@ -793,41 +793,41 @@ body {
 }
 
 .main {
-  width: 100%;
-  background-color: #EAEEF6;
+  /* width: 100%;
+  background-color: #EAEEF6; */
 }
 .main__block {
-  width: 100%;
+  /* width: 100%;
   margin: 0 auto;
-  padding: 25px 0 49px;
+  padding: 25px 0 49px; */
 }
 .main__content {
-  width: 100%;
-  display: flex;
+  /* width: 100%;
+  display: flex; */
 }
-.main__column {
+/* .main__column {
   width: 20%;
   margin: 0 auto;
   display: block;
-}
+} */
 
-.column__title {
+/* .column__title {
   padding: 0 10px;
   margin: 15px 0;
-}
-.column__title p {
+} */
+/* .column__title p {
   color: #94A6BE;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-}
+} */
 
-.cards {
+/* .cards {
   width: 100%;
   display: block;
   position: relative;
-}
+} */
 /* .cards__item {
   /* padding: 5px;
   animation-name: card-animation;
@@ -873,19 +873,19 @@ body {
   justify-content: space-around;
   padding: 2px;
 } */
-.card__btn div {
+/* .card__btn div {
   width: 4px;
   height: 4px;
   border-radius: 50%;
   background-color: #94A6BE;
-}
-.card__title {
+} */
+/* .card__title {
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;
-}
+} */
 /* .card__content {
   height: 64px;
   display: flex;
@@ -893,32 +893,32 @@ body {
   align-items: flex-start;
   justify-content: space-between;
 } */
-.card__date {
+/* .card__date {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-.card__date svg {
+} */
+/* .card__date svg {
   width: 13px;
-}
-.card__date p {
+} */
+/* .card__date p {
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
   color: #94A6BE;
   letter-spacing: 0.2px;
-}
+} */
 
 @media screen and (max-width: 1200px) {
   .main__block {
-    width: 100%;
+    /* width: 100%;
     margin: 0 auto;
-    padding: 40px 0 64px;
+    padding: 40px 0 64px; */
   }
   .main__content {
-    display: block;
+    /* display: block; */
   }
-  .main__column {
+  /* .main__column {
     width: 100%;
     margin: 0 auto;
     display: block;
@@ -927,8 +927,8 @@ body {
     width: 100%;
     display: flex;
     overflow-y: auto;
-  }
-  .cards__card {
+  } */
+  /* .cards__card {
     width: 220px;
     height: 130px;
     background-color: #FFFFFF;
@@ -938,7 +938,7 @@ body {
     align-items: flex-start;
     justify-content: stretch;
     padding: 15px 13px 19px;
-  }
+  } */
 }
 @media screen and (max-width: 660px) {
   .pop-new-card {
@@ -999,8 +999,8 @@ body {
 }
 @media screen and (max-width: 495px) {
   .container {
-    width: 100%;
-    padding: 0 16px;
+    /* width: 100%;
+    padding: 0 16px; */
   }
   .header__btn-main-new {
     z-index: 3;
