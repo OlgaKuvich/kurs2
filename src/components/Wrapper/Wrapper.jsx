@@ -1,9 +1,12 @@
+import { WrapperItem } from "./Wrapper.styled";
+
 function Wrapper({ children }) {
   return (
-    <div className="wrapper">
+    <WrapperItem>
       {/* pop-up end*/}
       {children}
-    </div>
+    </WrapperItem>
   );
 }
+
 export default Wrapper;
