@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../lib/appRoutes";
 import {
   CardBtn,
   CardBtnDiv,
@@ -13,7 +15,7 @@ import {
   CardsWrapper,
 } from "./Card.styled";
 
-function Card({ theme, name, date }) {
+function Card({ theme, name, date, id }) {
   let color;
   switch (theme) {
     case "Web Design":
@@ -25,9 +27,9 @@ function Card({ theme, name, date }) {
     case "Research":
       color = "_green";
       break;
-    // case "Copywriting":
-    // color = "_gray";
-    // break;
+    default:
+      color = "_gray";
+      break;
   }
   return (
     <CardsItem>
@@ -46,9 +48,9 @@ function Card({ theme, name, date }) {
           </a>
         </CardGroup>
         <CardContent>
-          <a href="" target="_blank">
+          <Link to={`${AppRoutes.CARD}/${id}`}>
             <CardTitle>{name}</CardTitle>
-          </a>
+          </Link>
           <CardDate>
             <CardDateSvg
               xmlns="http://www.w3.org/2000/svg"

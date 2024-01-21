@@ -159,7 +159,7 @@ export const PopUserButton = styled.button`
   border: 1px solid #565eef;
   &:hover {
     background-color: #33399b;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 `;
 

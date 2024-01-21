@@ -1,5 +1,10 @@
 import Card from "../Card/Card";
-import { ColumnCards, ColumnTitle, ColumnTitleP, MainColumn } from "./Column.styled";
+import {
+  ColumnCards,
+  ColumnTitle,
+  ColumnTitleP,
+  MainColumn,
+} from "./Column.styled";
 
 function Column({ title, cardList }) {
   return (
@@ -10,6 +15,7 @@ function Column({ title, cardList }) {
       <ColumnCards>
         {cardList.map((card) => (
           <Card
+            id={card.id}
             name={card.title}
             theme={card.theme}
             date={card.date}
