@@ -22,7 +22,7 @@ export default function HomePage({ addCard, isLoded, cards }) {
         <br />
         <Link to={AppRoutes.EXIT}>Выйти</Link>
         <br />
-        <Link to={AppRoutes.NEW_CARD}>Создать задачу</Link>
+        <Link to={AppRoutes.NEW_CARD}>Создать задачу</Link> 
       </Wrapper>
     </>
   );

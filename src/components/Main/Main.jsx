@@ -11,6 +11,7 @@ const statusList = [
 ];
 
 function Main({ cardList, isLoded }) {
+  console.log(cardList)
   return (
     <MainItem>
       <Container>

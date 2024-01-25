@@ -18,8 +18,8 @@ function PopExit() {
           <PopExitTtl>
             <h2>Выйти из аккаунта?</h2>
           </PopExitTtl>
-          <form className="pop-exit__form" id="formExit" action="#"> 
-          {/*"pop-exit__form" - нет такого класса в стилях App.css */}
+          <form className="pop-exit__form" id="formExit" action="#">
+            {/*"pop-exit__form" - нет такого класса в стилях App.css */}
             <PopExitGroup>
               <PopExitYes id="exitYes">
                 <PopExitYesA href="modal/signin.html">Да, выйти</PopExitYesA>{" "}
