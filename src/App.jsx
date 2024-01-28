@@ -10,6 +10,7 @@ import NewCard from "./pages/NewCard";
 import LoginPage from "./pages/loginpage/LoginPage";
 import RegisterPage from "./pages/registerpage/RegisterPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import NotFoundPage from "./pages/NotFoundPage";
 import { AppRoutes } from "./lib/appRoutes";
 
 function App() {
@@ -43,7 +44,11 @@ function App() {
           <Route
             path={AppRoutes.HOME}
             element={
-              <HomePage isLoded={isLoded} cardList={cards} addCard={addCard} />
+              <HomePage
+                isLoded={isLoded}
+                cardList={cardList}
+                addCard={addCard}
+              />
             }
           />
           <Route path={`${AppRoutes.CARD}/:cardId`} element={<CardPage />} />
@@ -52,6 +57,7 @@ function App() {
         </Route>
         <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
         <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+        <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </>
   );
