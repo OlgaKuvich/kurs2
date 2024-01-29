@@ -17,6 +17,8 @@ import {
   PopUserThemeInput,
   PopUserThemeP,
 } from "./Header.styled";
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../lib/appRoutes";
 
 function Header({ addCard }) {
   const [isOpened, setIsOpened] = useState(false);
@@ -59,7 +61,7 @@ function Header({ addCard }) {
                   <PopUserThemeInput type="checkbox" name="checkbox" />
                 </PopUserTheme>
                 <PopUserButton type="button" className="_hover03">
-                  <a href="#popExit">Выйти</a>
+                  <Link to={AppRoutes.EXIT} onClick={togglePopUp}>Выйти</Link>
                 </PopUserButton>
               </HeaderPopUser>
             )}
