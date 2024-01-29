@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 
-export default function RegisterPage() {
+export default function RegisterPage({ toggleIsLoggedIn }) {
   return (
     <div className="wrapper">
       <div className="container-signup">
@@ -32,12 +32,14 @@ export default function RegisterPage() {
                 id="passwordFirst"
                 placeholder="Пароль"
               />
-              <button
+              <Link
                 className="modal__btn-signup-ent _hover01"
                 id="SignUpEnter"
+                onClick={toggleIsLoggedIn}
+                to={AppRoutes.HOME}
               >
-                <Link to={AppRoutes.HOME}>Зарегистрироваться</Link>{" "}
-              </button>
+                Зарегистрироваться
+              </Link>
               <div className="modal__form-group">
                 <p>
                   Уже есть аккаунт?{" "}

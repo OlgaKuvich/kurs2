@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../lib/appRoutes";
 import {
   PopExitBlock,
   PopExitContainer,
@@ -10,7 +12,7 @@ import {
   PopExitYesA,
 } from "./PopExit.styled";
 
-function PopExit() {
+function PopExit({ toggleIsLoggedIn }) {
   return (
     <PopExitItem id="popExit">
       <PopExitContainer>
@@ -22,10 +24,16 @@ function PopExit() {
             {/*"pop-exit__form" - нет такого класса в стилях App.css */}
             <PopExitGroup>
               <PopExitYes id="exitYes">
-                <PopExitYesA href="modal/signin.html">Да, выйти</PopExitYesA>{" "}
+                <PopExitYesA>
+                  <Link to={AppRoutes.LOGIN} onClick={toggleIsLoggedIn}>
+                    Да, выйти
+                  </Link>{" "}
+                </PopExitYesA>
               </PopExitYes>
               <PopExitNo id="exitNo">
-                <PopExitNoA href="main.html">Нет, остаться</PopExitNoA>{" "}
+                <PopExitNoA>
+                  <Link to={AppRoutes.HOME}>Нет, остаться</Link>{" "}
+                </PopExitNoA>
               </PopExitNo>
             </PopExitGroup>
           </form>

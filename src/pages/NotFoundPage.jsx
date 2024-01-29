@@ -18,7 +18,7 @@ export default function NotFoundPage() {
     <>
       <GlobalStyle />
       <Item>
-        <title>Ошибка 404. Страница не найдена</title>
+        <h1>Ошибка 404. Страница не существует:</h1>
         <Link to={AppRoutes.HOME}>Вернуться на главную</Link>
       </Item>
     </>

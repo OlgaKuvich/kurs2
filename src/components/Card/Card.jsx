@@ -39,13 +39,15 @@ function Card({ theme, name, date, id }) {
           <CardTheme $themeColor={color}>
             <CardThemeText>{theme}</CardThemeText>
           </CardTheme>
-          <a href="#popBrowse" target="_self">
+          <Link to={`${AppRoutes.CARD}/${id}`}>
+          {/* <a href="#popBrowse" target="_self"> */}
             <CardBtn>
               <CardBtnDiv />
               <CardBtnDiv />
               <CardBtnDiv />
             </CardBtn>
-          </a>
+          {/* </a> */}
+          </Link>
         </CardGroup>
         <CardContent>
           <Link to={`${AppRoutes.CARD}/${id}`}>

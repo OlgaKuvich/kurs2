@@ -67,7 +67,7 @@ export const HeaderBtnMain = styled.button`
   }
 `;
 
-export const HeaderUser = styled.a`
+export const HeaderUser = styled.div`
   height: 20px;
   display: flex;
   flex-wrap: nowrap;

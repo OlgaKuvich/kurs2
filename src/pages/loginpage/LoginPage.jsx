@@ -27,7 +27,7 @@ export default function LoginPage() {
                 placeholder="Пароль"
               />
               <button className="modal__btn-enter _hover01" id="btnEnter">
-                <a href="../main.html">Войти</a>
+                <Link to={AppRoutes.HOME}>Войти</Link>
               </button>
               <div className="modal__form-group">
                 <p>Нужно зарегистрироваться?</p>
