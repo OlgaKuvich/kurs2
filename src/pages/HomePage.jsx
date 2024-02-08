@@ -2,21 +2,31 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Main from "../components/Main/Main";
 import Wrapper from "../components/Wrapper/Wrapper";
-import { cardList } from "../data";
+// import { cardList } from "../data";
 import { useEffect, useState } from "react";
+import { getTasks } from "../api";
 
-export default function HomePage() {
+export default function HomePage({ userData }) {
+  const [cards, setCards] = useState(null);
   const [isLoded, setIsLoded] = useState(true);
+  const [getCardsError, setGetCardsError] = useState(null);
   useEffect(() => {
-    setTimeout(() => {
+    getTasks({token: userData.token})
+    .then((data) => {
+      console.log(data.tasks);
+      setCards(data.tasks);
+    })
+    .catch((error) => {
+      setGetCardsError(error.message);
+    })
+    .then(() => {
       setIsLoded(false);
-    }, 1000);
+    })
   }, []);
 
-  const [cards, setCards] = useState(cardList);
-  useEffect(() => {
-    setCards(cardList);
-  }, [cards]);
+  // useEffect(() => {
+  //   setCards(cardList);
+  // }, [cards]);
 
   function addCard() {
     setCards([
@@ -34,8 +44,12 @@ export default function HomePage() {
     <>
       <Wrapper>
         <Outlet />
-        <Header addCard={addCard} />
+        <Header addCard={addCard} user={userData} />
+        {getCardsError ? (
+          <p style={{ color: "red",  weight: 400, size: 14 }}>{getCardsError}</p>
+        ) : (
         <Main isLoded={isLoded} cardList={cards} />
+        )}
       </Wrapper>
     </>
   );
