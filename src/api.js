@@ -26,7 +26,7 @@ export async function getTasks({ token }) {
     },
   });
 
-  if (!response.ok) {
+  if (!response.ok === 200) {
     throw new Error(alert("Ошибка сервера"));
   }
   const data = await response.json();
@@ -46,7 +46,7 @@ export async function registerUser({ login, name, password }) {
     if (response.status === 400) {
       throw new Error(alert("Пользователь с таким именем уже существует"));
     }
-    const data = await response.json();
-    return data;
+    const user = await response.json();
+    return user;
   }
 

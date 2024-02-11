@@ -74,7 +74,7 @@ export default function LoginPage({ setUserData }) {
               </button>
               <div className="modal__form-group">
                 <p>Нужно зарегистрироваться?</p>
-                <Link to={AppRoutes.PEGISTER}>Регистрируйтесь здесь</Link>
+                <Link to={AppRoutes.REGISTER}>Регистрируйтесь здесь</Link>
               </div>
             </form>
           </div>
