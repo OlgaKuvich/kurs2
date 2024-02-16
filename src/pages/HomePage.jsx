@@ -21,7 +21,7 @@ export default function HomePage({ userData }) {
     .then(() => {
       setIsLoded(false);
     });
-  }, []);
+  }, [userData]);
 
   function addCard() {
     setCards([

@@ -16,11 +16,6 @@ function App() {
 
   const [userData, setUserData] = useState(null);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  function toggleIsLoggedIn() {
-    setIsLoggedIn((prev) => !prev);
-  }
-
   return (
     <>
       <GlobalStyle />
@@ -29,10 +24,10 @@ function App() {
           <Route path={AppRoutes.HOME} element={<HomePage userData={userData} />} />
           <Route path={`${AppRoutes.CARD}/:cardId`} element={<CardPage />} />
           <Route path={AppRoutes.NEW_CARD} element={<NewCard />} />
-          <Route path={AppRoutes.EXIT} element={<ExitPage toggleIsLoggedIn={toggleIsLoggedIn} />} />
+          <Route path={AppRoutes.EXIT} element={<ExitPage setUserData={setUserData} />} />
         </Route>
-        <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} toggleIsLoggedIn={toggleIsLoggedIn} />} />
-        <Route path={AppRoutes.REGISTER} element={<RegisterPage toggleIsLoggedIn={toggleIsLoggedIn} />} />
+        <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
         <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </>

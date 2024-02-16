@@ -20,7 +20,7 @@ import {
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 
-function Header({ addCard }) {
+function Header({ addCard, userData }) {
   const [isOpened, setIsOpened] = useState(false);
   function togglePopUp() {
     setIsOpened((prev) => !prev);
@@ -40,12 +40,13 @@ function Header({ addCard }) {
             </a>
           </HeaderLogoDark>
           <HeaderNav>
+          <Link to={AppRoutes.NEW_CARD}>
             <HeaderBtnMain id="btnMainNew" onClick={addCard}>
               Создать новую задачу
             </HeaderBtnMain>
-
+            </Link>
             <HeaderUser href="#" onClick={togglePopUp}>
-              Ivan Ivanov
+            {userData?.login} 
             </HeaderUser>
 
             {isOpened && (
@@ -54,8 +55,8 @@ function Header({ addCard }) {
                 //  id="user-set-target"
               >
                 {/* <a href="">x</a> */}
-                <PopUserName>Ivan Ivanov</PopUserName>
-                <PopUserMail>ivan.ivanov@gmail.com</PopUserMail>
+                <PopUserName>{userData?.name}</PopUserName>
+                <PopUserMail>{userData?.login}</PopUserMail>
                 <PopUserTheme>
                   <PopUserThemeP>Темная тема</PopUserThemeP>
                   <PopUserThemeInput type="checkbox" name="checkbox" />

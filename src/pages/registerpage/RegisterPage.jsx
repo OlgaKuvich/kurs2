@@ -60,11 +60,12 @@ export default function RegisterPage({ setUserDate }) {
                   <input
                     className="modal__input first-name"
                     type="text"
-                    name="first-name"
+                    name="name"
                     id="first-name"
                     placeholder="Имя"
                     value={registerData.name}
                     onChange={handleInputChange}
+                    label="name"
                   />
                   <input
                     className="modal__input login"
@@ -74,6 +75,7 @@ export default function RegisterPage({ setUserDate }) {
                     placeholder="Эл. почта"
                     value={registerData.login}
                     onChange={handleInputChange}
+                    label="login"
                   />
                   <input
                     className="modal__input password-first"
@@ -83,6 +85,7 @@ export default function RegisterPage({ setUserDate }) {
                     placeholder="Пароль"
                     value={registerData.password}
                     onChange={handleInputChange}
+                    label="password"
                   />
                   <button
                     className="modal__btn-signup-ent _hover01"
