@@ -1,10 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { registerUser } from "../../api";
+import { useUser } from "../../hooks/useUser";
 
-export default function RegisterPage({ setUserDate }) {
-  let navigate = useNavigate();
+export default function RegisterPage() {
+  
+  const {loginUser} = useUser;
 
   const registerForm = {
     login: "",
@@ -34,9 +36,10 @@ export default function RegisterPage({ setUserDate }) {
         name: registerData.name,
         password: registerData.password,
       });
-      setUserDate(regUser.user);
+      // setUserDate(regUser.user);
+      loginUser(regUser.user);
       alert("Пользователь успешно создан");
-      navigate(AppRoutes.HOME);
+    
     } catch (error) {
       setRegFormError(error.message);
     } finally {

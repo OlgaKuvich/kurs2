@@ -22,6 +22,7 @@ import { AppRoutes } from "../../lib/appRoutes";
 
 function Header({ addCard, userData }) {
   const [isOpened, setIsOpened] = useState(false);
+  
   function togglePopUp() {
     setIsOpened((prev) => !prev);
   }

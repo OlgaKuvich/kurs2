@@ -13,7 +13,6 @@ import { AppRoutes } from "./lib/appRoutes";
 import { useState } from "react";
 
 function App() {
-
   const [userData, setUserData] = useState(null);
 
   return (
@@ -21,13 +20,16 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute user={userData} />}>
-          <Route path={AppRoutes.HOME} element={<HomePage userData={userData} />} />
+          <Route path={AppRoutes.HOME} element={<HomePage />} />
           <Route path={`${AppRoutes.CARD}/:cardId`} element={<CardPage />} />
           <Route path={AppRoutes.NEW_CARD} element={<NewCard />} />
-          <Route path={AppRoutes.EXIT} element={<ExitPage setUserData={setUserData} />} />
+          <Route
+            path={AppRoutes.EXIT}
+            element={<ExitPage setUserData={setUserData} />}
+          />
         </Route>
-        <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} />} />
-        <Route path={AppRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
+        <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
         <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </>

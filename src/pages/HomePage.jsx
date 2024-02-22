@@ -4,8 +4,10 @@ import Main from "../components/Main/Main";
 import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 import { getTasks } from "../api";
+import { useUser } from "../hooks/useUser";
 
-export default function HomePage({ userData }) {
+export default function HomePage() {
+  const {userData} = useUser();
   const [cards, setCards] = useState(null);
   const [isLoded, setIsLoded] = useState(true);
   const [getCardsError, setGetCardsError] = useState(null);

@@ -16,6 +16,16 @@ import {
 } from "./Card.styled";
 
 function Card({ theme, name, date, id }) {
+
+  // const handNewTask = (e) => {
+  //   const { name, value } = e.target; // Извлекаем имя поля и его значение
+
+  //   setLoginData({
+  //     ...loginData, // Копируем текущие данные из состояния
+  //     [name]: value, // Обновляем нужное поле
+  //   });
+  // };
+
   let color;
   switch (theme) {
     case "Web Design":
