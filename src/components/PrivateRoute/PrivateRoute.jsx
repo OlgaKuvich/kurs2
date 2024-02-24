@@ -4,6 +4,6 @@ import { useUser } from "../../hooks/useUser";
 
 export default function PrivateRoute() {
   const {userData} = useUser();
-  console.log(userData);
+  // console.log(userData);
   return userData ? <Outlet /> : <Navigate to={AppRoutes.LOGIN} />;
 }

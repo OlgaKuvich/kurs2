@@ -18,7 +18,7 @@ export async function login({ login, password }) {
   return data;
 }
 
-export async function getTasks({ token }) {
+export async function getTasks() {
   const response = await fetch(API_URL, {
     method: "GET",
     headers: {
@@ -34,19 +34,36 @@ export async function getTasks({ token }) {
 }
 
 export async function registerUser({ login, name, password }) {
-    const response = await fetch(API_URL_USER + `/login`, {
-      method: "POST",
-      body: JSON.stringify({
-        login,
-        name,
-        password,
-      }),
-    });
-  
-    if (response.status === 400) {
-      throw new Error(alert("Пользователь с таким именем уже существует"));
-    }
+  const response = await fetch(API_URL_USER + `/login`, {
+    method: "POST",
+    body: JSON.stringify({
+      login,
+      name,
+      password,
+    }),
+  });
+
+  if (response.status === 400) {
+    throw new Error(alert("Пользователь с таким именем уже существует"));
+  }
+  const user = await response.json();
+  return user;
+}
+
+export async function createTasks(inputData) {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(inputData),
+  });
+
+  if (response.status === 400) {
+    throw new Error(alert("Введите все данные"));
+  } else {
     const user = await response.json();
     return user;
   }
 
+}

@@ -5,18 +5,15 @@ import { registerUser } from "../../api";
 import { useUser } from "../../hooks/useUser";
 
 export default function RegisterPage() {
-  
   const {loginUser} = useUser;
-
   const registerForm = {
     login: "",
     name: "",
     password: "",
   };
 
-  const handleInputChange = (e) => {
+ const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
-
     setRegisterData({
       ...registerData, // Копируем текущие данные из состояния
       [name]: value, // Обновляем нужное поле

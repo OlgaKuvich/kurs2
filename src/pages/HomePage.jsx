@@ -14,7 +14,6 @@ export default function HomePage() {
   useEffect(() => {
     getTasks({token: userData.token})
     .then((data) => {
-      console.log(data.tasks);
       setCards(data.tasks);
     })
     .catch((error) => {
