@@ -62,8 +62,46 @@ export async function createTasks(inputData) {
   if (response.status === 400) {
     throw new Error(alert("Введите все данные"));
   } else {
-    const user = await response.json();
-    return user;
+    const data = await response.json();
+    return data;
   }
+}
 
+export async function deleteTasks(id) {
+  const response = await fetch(API_URL + `/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  if (response.status >= 400) {
+    throw new Error(alert("Ошибка удаления"));
+  } else {
+    const data = await response.json();
+    return data;
+  }
+}
+
+export async function editTasks({ token, id, title, topic, status, description, date }) {
+  const response = await fetch(API_URL+ `/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+        title, 
+        topic, 
+        status, 
+        description, 
+        date, 
+      }),
+  });
+
+  if (response.status >= 400) {
+    throw new Error(alert("Ошибка редактирования"));
+  } else {
+    const data = await response.json();
+    return data;
+  }
 }

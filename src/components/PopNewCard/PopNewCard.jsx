@@ -31,8 +31,8 @@ function PopNewCard() {
     };
 
     createTasks(newCard).then(() => {
-      getTasks().then(() => {
-        setTasks();
+      getTasks().then((data) => {
+        setTasks(data.tasks);
         navigate(AppRoutes.HOME);
       });
     });

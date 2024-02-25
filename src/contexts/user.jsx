@@ -14,6 +14,8 @@ export const UserProvider = ({ children }) => {
 
     const [userData, setUserData] = useState(getUserFromLocalStorage());
 
+    const [tasks,setTasks]=useState([]);
+    
     const loginUser = (user) => {
         console.log(user);
         setUserData(user);
@@ -28,7 +30,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{userData, loginUser, logoutUser}}>
+        <UserContext.Provider value={{userData, loginUser, logoutUser, setTasks, tasks}}>
             {children}
         </UserContext.Provider>
         
