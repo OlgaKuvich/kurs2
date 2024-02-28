@@ -1,15 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Calendar } from "../Calendar/Calendar";
-import { useUser } from "../../hooks/useUser";
+// import { useUser } from "../../hooks/useUser";
 import { createTasks, getTasks } from "../../api";
+import { TasksContext } from "../../contexts/tasks";
 
 
 function PopNewCard() {
   const [selected, setSelected] = useState();
-  const { setTasks } = useUser();
+  const { setTasks } = useContext(TasksContext);
   const navigate = useNavigate();
+ 
   const [newTask, setNewTask] = useState({
     title: "",
     topic: "",
@@ -100,7 +102,7 @@ function PopNewCard() {
                 <div className="categories__theme _purple">
                   <p className="_purple">Copywriting</p>
                 </div> */}
-<div className="prod_checbox">
+                <div className="prod_checbox">
                   <div className="radio-toolbar">
                     <input
                       type="radio"

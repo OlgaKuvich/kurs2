@@ -12,7 +12,7 @@ import {
   PopExitYesA,
 } from "./PopExit.styled";
 
-function PopExit({ toggleIsLoggedIn }) {
+function PopExit() {
   return (
     <PopExitItem id="popExit">
       <PopExitContainer>
@@ -25,7 +25,7 @@ function PopExit({ toggleIsLoggedIn }) {
             <PopExitGroup>
               <PopExitYes id="exitYes">
                 <PopExitYesA>
-                  <Link to={AppRoutes.LOGIN} onClick={toggleIsLoggedIn}>
+                  <Link to={AppRoutes.LOGIN}>
                     Да, выйти
                   </Link>{" "}
                 </PopExitYesA>

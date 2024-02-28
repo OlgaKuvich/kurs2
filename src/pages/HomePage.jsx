@@ -5,16 +5,18 @@ import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 import { getTasks } from "../api";
 import { useUser } from "../hooks/useUser";
+import { useContext } from "react";
+import { TasksContext } from "../contexts/tasks";
 
 export default function HomePage() {
   const {userData} = useUser();
-  const [cards, setCards] = useState(null);
+  const {tasks, setTasks} = useContext(TasksContext);
   const [isLoded, setIsLoded] = useState(true);
   const [getCardsError, setGetCardsError] = useState(null);
   useEffect(() => {
     getTasks({token: userData.token})
     .then((data) => {
-      setCards(data.tasks);
+      setTasks(data.tasks);
     })
     .catch((error) => {
       setGetCardsError(error.message);
@@ -25,10 +27,10 @@ export default function HomePage() {
   }, [userData]);
 
   function addCard() {
-    setCards([
-      ...cards,
+    setTasks([
+      ...tasks,
       {
-        id: cards.length + 1,
+        id: tasks.length + 1,
         theme: "Web Design",
         title: "Название задачи",
         date: "30.10.23",
@@ -44,7 +46,7 @@ export default function HomePage() {
         {getCardsError ? (
           <p style={{ color: "red",  weight: 400, size: 14 }}>{getCardsError}</p>
         ) : (
-        <Main isLoded={isLoded} cardList={cards} />
+        <Main isLoded={isLoded} cardList={tasks} />
         )}
       </Wrapper>
     </>
