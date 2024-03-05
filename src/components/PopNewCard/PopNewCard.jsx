@@ -10,6 +10,7 @@ import { TasksContext } from "../../contexts/tasks";
 function PopNewCard() {
   const [selected, setSelected] = useState();
   const { setTasks } = useContext(TasksContext);
+  // const { setTasks } = useUser();
   const navigate = useNavigate();
  
   const [newTask, setNewTask] = useState({
@@ -19,10 +20,10 @@ function PopNewCard() {
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target; // Извлекаем имя поля и его значение
+    const { name, value } = e.target; 
     setNewTask({
-      ...newTask, // Копируем текущие данные из состояния
-      [name]: value, // Обновляем нужное поле
+      ...newTask, 
+      [name]: value, 
     });
   };
 
@@ -104,7 +105,7 @@ function PopNewCard() {
                 </div> */}
                 <div className="prod_checbox">
                   <div className="radio-toolbar">
-                    <input
+                    <input className="hidden"
                       type="radio"
                       id="radio1"
                       name="topic"
@@ -115,7 +116,7 @@ function PopNewCard() {
                       Web Design
                     </label>
 
-                    <input
+                    <input className="hidden"
                       type="radio"
                       id="radio2"
                       name="topic"
@@ -126,7 +127,7 @@ function PopNewCard() {
                       Research
                     </label>
 
-                    <input
+                    <input className="hidden"
                       type="radio"
                       id="radio3"
                       name="topic"

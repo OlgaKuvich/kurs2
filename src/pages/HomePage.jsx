@@ -13,6 +13,7 @@ export default function HomePage() {
   const {tasks, setTasks} = useContext(TasksContext);
   const [isLoded, setIsLoded] = useState(true);
   const [getCardsError, setGetCardsError] = useState(null);
+  
   useEffect(() => {
     getTasks({token: userData.token})
     .then((data) => {

@@ -14,11 +14,15 @@ import {
   CardsItem,
   CardsWrapper,
 } from "./Card.styled";
+import { format } from "date-fns";
+import { useContext } from "react";
+import { TasksContext } from "../../contexts/tasks";
 
-function Card({ theme, name, date, id }) {
+function Card({ topic, title, date, id }) {
+  const { setTasks } = useContext(TasksContext);
 
   let color;
-  switch (theme) {
+  switch (topic) {
     case "Web Design":
       color = "_orange";
       break;
@@ -36,23 +40,20 @@ function Card({ theme, name, date, id }) {
     <CardsItem>
       <CardsWrapper>
         <CardGroup>
-          {/* {console.log(theme)} */}
           <CardTheme $themeColor={color}>
-            <CardThemeText>{theme}</CardThemeText>
+            <CardThemeText>{topic}</CardThemeText>
           </CardTheme>
-          <Link to={`${AppRoutes.CARD}/${id}`}>
-          {/* <a href="#popBrowse" target="_self"> */}
+          <Link to={`${AppRoutes.CARD}/${id}`} target="_self">
             <CardBtn>
               <CardBtnDiv />
               <CardBtnDiv />
               <CardBtnDiv />
             </CardBtn>
-          {/* </a> */}
           </Link>
         </CardGroup>
         <CardContent>
           <Link to={`${AppRoutes.CARD}/${id}`}>
-            <CardTitle>{name}</CardTitle>
+            <CardTitle>{title}</CardTitle>
           </Link>
           <CardDate>
             <CardDateSvg
@@ -83,7 +84,7 @@ function Card({ theme, name, date, id }) {
                 </clipPath>
               </defs>
             </CardDateSvg>
-            <CardDateP>{date}</CardDateP>
+            <CardDateP>{format(date, "dd.MM.yy")}</CardDateP>
           </CardDate>
         </CardContent>
       </CardsWrapper>

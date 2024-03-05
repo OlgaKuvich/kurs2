@@ -21,7 +21,7 @@ function PopExit() {
             <h2>Выйти из аккаунта?</h2>
           </PopExitTtl>
           <form className="pop-exit__form" id="formExit" action="#">
-            {/*"pop-exit__form" - нет такого класса в стилях App.css */}
+          <div className="pop-exit__form-group">
             <PopExitGroup>
               <PopExitYes id="exitYes">
                 <PopExitYesA>
@@ -36,6 +36,7 @@ function PopExit() {
                 </PopExitNoA>
               </PopExitNo>
             </PopExitGroup>
+            </div>
           </form>
         </PopExitBlock>
       </PopExitContainer>

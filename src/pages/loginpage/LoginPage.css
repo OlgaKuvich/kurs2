@@ -24,6 +24,7 @@ ul li {
   list-style: none;
 }
 
+/* // ============== fonts ========= */
 html,
 body {
   width: 100%;
@@ -52,10 +53,12 @@ a {
   margin: 0 auto;
 }
 
+/* // ========== hover ======== */
 ._hover01:hover {
   background-color: #33399b;
 }
 
+/* // ========== activ ======== */
 .modal {
   width: 100%;
   height: 100%;
@@ -160,6 +163,7 @@ a {
   text-decoration: underline;
 }
 
+/* // ==================== media ================== */
 @media screen and (max-width: 375px) {
   .modal {
     background-color: #FFFFFF;
@@ -175,4 +179,4 @@ a {
   .modal__btn-enter {
     height: 40px;
   }
-}
+}/*# sourceMappingURL=LoginPage.css.map */
