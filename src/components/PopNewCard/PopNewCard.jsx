@@ -6,13 +6,12 @@ import { Calendar } from "../Calendar/Calendar";
 import { createTasks, getTasks } from "../../api";
 import { TasksContext } from "../../contexts/tasks";
 
-
 function PopNewCard() {
   const [selected, setSelected] = useState();
   const { setTasks } = useContext(TasksContext);
   // const { setTasks } = useUser();
   const navigate = useNavigate();
- 
+
   const [newTask, setNewTask] = useState({
     title: "",
     topic: "",
@@ -20,10 +19,10 @@ function PopNewCard() {
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target; 
+    const { name, value } = e.target;
     setNewTask({
-      ...newTask, 
-      [name]: value, 
+      ...newTask,
+      [name]: value,
     });
   };
 
@@ -74,7 +73,7 @@ function PopNewCard() {
                   <label htmlFor="textArea" className="subttl">
                     Описание задачи
                   </label>
-                  <textarea 
+                  <textarea
                     value={newTask.description}
                     onChange={handleInputChange}
                     className="form-new__area"
@@ -85,15 +84,13 @@ function PopNewCard() {
                 </div>
               </form>
 
-                <Calendar selected={selected} setSelected={setSelected}/>
-
+              <Calendar selected={selected} setSelected={setSelected} />
             </div>
             <div className="pop-new-card__categories categories">
               <p className="categories__p subttl">Категория</p>
 
               <div className="categories__themes">
-
-{/* 
+                {/* 
                 <div className="categories__theme _orange _active-category">
                   <p className="_orange">Web Design</p>
                 </div>
@@ -105,7 +102,8 @@ function PopNewCard() {
                 </div> */}
                 <div className="prod_checbox">
                   <div className="radio-toolbar">
-                    <input className="hidden"
+                    <input
+                      className="hidden"
                       type="radio"
                       id="radio1"
                       name="topic"
@@ -116,7 +114,8 @@ function PopNewCard() {
                       Web Design
                     </label>
 
-                    <input className="hidden"
+                    <input
+                      className="hidden"
                       type="radio"
                       id="radio2"
                       name="topic"
@@ -127,7 +126,8 @@ function PopNewCard() {
                       Research
                     </label>
 
-                    <input className="hidden"
+                    <input
+                      className="hidden"
                       type="radio"
                       id="radio3"
                       name="topic"
@@ -137,13 +137,15 @@ function PopNewCard() {
                     <label className="_purple" htmlFor="radio3">
                       Copywriting
                     </label>
+                  </div>
                 </div>
               </div>
-              
-              </div>
-
             </div>
-            <button onClick={addCard} className="form-new__create _hover01" id="btnCreate">
+            <button
+              onClick={addCard}
+              className="form-new__create _hover01"
+              id="btnCreate"
+            >
               Создать задачу
             </button>
           </div>
@@ -152,6 +154,5 @@ function PopNewCard() {
     </div>
   );
 }
-
 
 export default PopNewCard;

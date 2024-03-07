@@ -95,10 +95,6 @@ export const PopExitYesA = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  &:hover {
-    background-color: #33399b;
-    color: #FFFFFF
-  }
 `;
 
 export const PopExitNo = styled.button`
@@ -116,10 +112,6 @@ export const PopExitNo = styled.button`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #ffffff;
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
   @media (max-width: ${breakpoints.sm}px) {
     width: 100%;
     height: 40px;

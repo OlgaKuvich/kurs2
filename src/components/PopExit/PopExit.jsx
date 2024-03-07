@@ -21,21 +21,19 @@ function PopExit() {
             <h2>Выйти из аккаунта?</h2>
           </PopExitTtl>
           <form className="pop-exit__form" id="formExit" action="#">
-          <div className="pop-exit__form-group">
-            <PopExitGroup>
-              <PopExitYes id="exitYes">
-                <PopExitYesA>
-                  <Link to={AppRoutes.LOGIN}>
-                    Да, выйти
-                  </Link>{" "}
-                </PopExitYesA>
-              </PopExitYes>
-              <PopExitNo id="exitNo">
-                <PopExitNoA>
-                  <Link to={AppRoutes.HOME}>Нет, остаться</Link>{" "}
-                </PopExitNoA>
-              </PopExitNo>
-            </PopExitGroup>
+            <div className="pop-exit__form-group">
+              <PopExitGroup>
+                <PopExitYes className="_hover01" id="exitYes">
+                  <PopExitYesA>
+                    <Link to={AppRoutes.LOGIN}>Да, выйти</Link>{" "}
+                  </PopExitYesA>
+                </PopExitYes>
+                <PopExitNo className="_hover03" id="exitNo">
+                  <PopExitNoA>
+                    <Link to={AppRoutes.HOME}>Нет, остаться</Link>{" "}
+                  </PopExitNoA>
+                </PopExitNo>
+              </PopExitGroup>
             </div>
           </form>
         </PopExitBlock>

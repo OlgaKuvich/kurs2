@@ -54,7 +54,7 @@ export async function createTasks(inputData) {
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(inputData),
   });
@@ -71,8 +71,8 @@ export async function deleteTasks(id) {
   const response = await fetch(API_URL + `/${id}`, {
     method: "DELETE",
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (response.status >= 400) {
@@ -83,19 +83,27 @@ export async function deleteTasks(id) {
   }
 }
 
-export async function editTasks({ token, id, title, topic, status, description, date }) {
-  const response = await fetch(API_URL+ `/${id}`, {
+export async function editTasks({
+  token,
+  id,
+  title,
+  topic,
+  status,
+  description,
+  date,
+}) {
+  const response = await fetch(API_URL + `/${id}`, {
     method: "PUT",
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-        title, 
-        topic, 
-        status, 
-        description, 
-        date, 
-      }),
+      title,
+      topic,
+      status,
+      description,
+      date,
+    }),
   });
 
   if (response.status >= 400) {
