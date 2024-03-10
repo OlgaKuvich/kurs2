@@ -5,6 +5,7 @@ import { Calendar } from "../Calendar/Calendar";
 // import { useUser } from "../../hooks/useUser";
 import { createTasks, getTasks } from "../../api";
 import { TasksContext } from "../../contexts/tasks";
+import { GlobalNewCard } from "./PopNewCard.styled";
 
 function PopNewCard() {
   const [selected, setSelected] = useState();
@@ -41,6 +42,8 @@ function PopNewCard() {
   };
 
   return (
+    <> 
+    <GlobalNewCard />
     <div className="pop-new-card" id="popNewCard">
       <div className="pop-new-card__container">
         <div className="pop-new-card__block">
@@ -103,7 +106,7 @@ function PopNewCard() {
                 <div className="prod_checbox">
                   <div className="radio-toolbar">
                     <input
-                      className="hidden"
+                      className="categories__theme"
                       type="radio"
                       id="radio1"
                       name="topic"
@@ -115,7 +118,7 @@ function PopNewCard() {
                     </label>
 
                     <input
-                      className="hidden"
+                      className="categories__theme"
                       type="radio"
                       id="radio2"
                       name="topic"
@@ -127,7 +130,7 @@ function PopNewCard() {
                     </label>
 
                     <input
-                      className="hidden"
+                      className="categories__theme"
                       type="radio"
                       id="radio3"
                       name="topic"
@@ -152,7 +155,9 @@ function PopNewCard() {
         </div>
       </div>
     </div>
+    </>
   );
 }
+
 
 export default PopNewCard;

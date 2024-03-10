@@ -3,7 +3,7 @@ import { Calendar } from "../Calendar/Calendar";
 import { useContext, useEffect, useState } from "react";
 import { useUser } from "../../hooks/useUser";
 import { AppRoutes } from "../../lib/appRoutes";
-import { createTasks, deleteTasks, editTasks, getTasks } from "../../api";
+import { deleteTasks, editTasks, getTasks } from "../../api";
 import { TasksContext } from "../../contexts/tasks";
 
 function PopBrowse() {
@@ -83,13 +83,14 @@ function PopBrowse() {
     "Готово",
   ];
 
-  const addCard = async () => {
+  const aditCard = async () => {
     let newCard = {
       ...newTask,
       data: selected,
     };
     console.log(newCard);
     await  editTasks({
+      id: cardId,
       token: userData.token,
       title: newCard.title,
       topic: newCard.topic,
@@ -241,7 +242,7 @@ function PopBrowse() {
                   <div className="btn-group">
                     <button
                       className="btn-edit__edit _btn-bg _hover01"
-                      onClick={handleEditMode}
+                      onClick={aditCard}
                     >
                       Сохранить
                     </button>

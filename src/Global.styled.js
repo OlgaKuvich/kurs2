@@ -54,4 +54,33 @@ ul li {
   display: block;
 }
 
+._orange {
+  background-color: #FFE4C2;
+  color: #FF6D00;
+}
+
+._green {
+  background-color: #B4FDD1;
+  color: #06B16E;
+}
+
+._purple {
+  background-color: #E9D4FF;
+  color: #9A48F1;
+}
+
+._gray {
+  background: #94A6BE;
+  color: #FFFFFF;
+}
+
+._active-category {
+  opacity: 1 !important;
+}
+
+.pop-wrap {
+  position: relative;
+  top: 0;
+  left: 0;
+}
 `;
