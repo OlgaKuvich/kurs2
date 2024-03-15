@@ -5,24 +5,23 @@ import { useUser } from "../../hooks/useUser";
 import { AppRoutes } from "../../lib/appRoutes";
 import { deleteTasks, editTasks, getTasks } from "../../api";
 import { TasksContext } from "../../contexts/tasks";
+// import  from" App.css"
 
 function PopBrowse() {
-  const [selected, setSelected] = useState();
+  let { cardId } = useParams();
   const { tasks, setTasks } = useContext(TasksContext);
+  const card = tasks.find((task) => task._id === cardId);
+  const [selected, setSelected] = useState(card.date);
   const { userData } = useUser();
   const [saveValue, setSaveValue] = useState({});
   const navigate = useNavigate();
-  let { cardId } = useParams();
-
   const [isEdit, setIsEdit] = useState(false);
 
   const cancelClick = () => {
-    // setModalData(saveValue)
+    setSelected(saveValue);
     setSaveValue({});
     setIsEdit(false);
   };
-
-  const card = tasks.find((task) => task._id === cardId);
 
   const [status, setStatus] = useState(card.status);
 
@@ -36,21 +35,6 @@ function PopBrowse() {
 
   console.log(isEdit);
 
-  const handleEditMode = () => {
-    const newCards = tasks.map((item) => {
-      if (item._id === cardId) {
-        return {
-          ...item,
-          ...newTask,
-          status: status,
-        };
-      }
-      return item;
-    });
-    setTasks(newCards);
-    setIsEdit(!isEdit);
-  };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewTask({
@@ -61,8 +45,6 @@ function PopBrowse() {
 
   let nowDate = new Date(newTask.date).toLocaleString();
   console.log(nowDate);
-  // console.log(newTask.date);
-  // console.log(newTask);
 
   const deleteCard = (id) => {
     deleteTasks(id)
@@ -89,13 +71,13 @@ function PopBrowse() {
       data: selected,
     };
     console.log(newCard);
-    await  editTasks({
+    await editTasks({
       id: cardId,
       token: userData.token,
-      title: newCard.title,
       topic: newCard.topic,
-      status: newCard.status,
+      status: status,
       description: newCard.description,
+      date: selected,
     });
     getTasks({ token: userData.token }).then((data) => {
       setTasks(data.tasks);
@@ -132,24 +114,6 @@ function PopBrowse() {
                 <p className="status__p subttl">Статус</p>
 
                 <div className="status__themes">
-                  {/* 
-                <div className="status__theme _hide">
-                  <p>Без статуса</p>
-                </div>
-                <div className="status__theme _gray">
-                  <p className="_gray">Нужно сделать</p>
-                </div>
-                <div className="status__theme _hide">
-                  <p>В работе</p>
-                </div>
-                <div className="status__theme _hide">
-                  <p>Тестирование</p>
-                </div>
-                <div className="status__theme _hide">
-                  <p>Готово</p>
-                </div>
-              </div> */}
-
                   {isEdit ? (
                     statuses.map((el, item) => (
                       <div
@@ -188,7 +152,6 @@ function PopBrowse() {
                         id="textArea01"
                         readOnly=""
                         placeholder="Введите описание задачи..."
-                        defaultValue={""}
                       />
                     </div>
                   </form>
@@ -238,7 +201,6 @@ function PopBrowse() {
                 <div
                   className={"pop-browse__btn-edit " + (isEdit ? "" : "_hide")}
                 >
-                  {/* {isEdit && <>  */}
                   <div className="btn-group">
                     <button
                       className="btn-edit__edit _btn-bg _hover01"
@@ -267,7 +229,6 @@ function PopBrowse() {
                       Закрыть
                     </button>
                   </Link>
-                  {/* </>} */}
                 </div>
               </div>
             </div>

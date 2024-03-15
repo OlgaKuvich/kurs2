@@ -6,9 +6,8 @@ import { login } from "../../api";
 import { useUser } from "../../hooks/useUser";
 
 export default function LoginPage() {
+  const { loginUser } = useUser();
 
-  const {loginUser} = useUser();
-  
   const loginForm = {
     login: ``,
     password: ``,

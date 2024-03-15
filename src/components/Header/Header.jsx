@@ -22,7 +22,7 @@ import { AppRoutes } from "../../lib/appRoutes";
 
 function Header({ addCard, user }) {
   const [isOpened, setIsOpened] = useState(false);
-  
+
   function togglePopUp() {
     setIsOpened((prev) => !prev);
   }
@@ -42,23 +42,19 @@ function Header({ addCard, user }) {
           </HeaderLogoDark>
 
           <HeaderNav>
-          <Link to={AppRoutes.NEW_CARD}>
-            <HeaderBtnMain id="btnMainNew" onClick={addCard}>
-              Создать новую задачу
-            </HeaderBtnMain>
+            <Link to={AppRoutes.NEW_CARD}>
+              <HeaderBtnMain id="btnMainNew" onClick={addCard}>
+                Создать новую задачу
+              </HeaderBtnMain>
             </Link>
 
-            <HeaderUser 
-            onClick={togglePopUp}>  
-            {user?.login}  
-            </HeaderUser>
+            <HeaderUser onClick={togglePopUp}>{user?.login}</HeaderUser>
 
             {isOpened && (
               <HeaderPopUser
                 className="header__pop-user-set pop-user-set"
-                 id="user-set-target"
+                id="user-set-target"
               >
-                {/* <a href="">x</a> */}
                 <PopUserName>{user?.name}</PopUserName>
                 <PopUserMail>{user?.login}</PopUserMail>
                 <PopUserTheme>
@@ -66,7 +62,9 @@ function Header({ addCard, user }) {
                   <PopUserThemeInput type="checkbox" name="checkbox" />
                 </PopUserTheme>
                 <PopUserButton type="button" className="_hover03">
-                  <Link to={AppRoutes.EXIT} onClick={togglePopUp}>Выйти</Link>
+                  <Link to={AppRoutes.EXIT} onClick={togglePopUp}>
+                    Выйти
+                  </Link>
                 </PopUserButton>
               </HeaderPopUser>
             )}

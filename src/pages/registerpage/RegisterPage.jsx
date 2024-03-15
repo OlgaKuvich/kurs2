@@ -3,16 +3,17 @@ import { AppRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { registerUser } from "../../api";
 import { useUser } from "../../hooks/useUser";
+import "./RegisterPage.css";
 
 export default function RegisterPage() {
-  const {loginUser} = useUser;
+  const { loginUser } = useUser;
   const registerForm = {
     login: "",
     name: "",
     password: "",
   };
 
- const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
     setRegisterData({
       ...registerData, // Копируем текущие данные из состояния
@@ -33,10 +34,8 @@ export default function RegisterPage() {
         name: registerData.name,
         password: registerData.password,
       });
-      // setUserDate(regUser.user);
       loginUser(regUser.user);
       alert("Пользователь успешно создан");
-    
     } catch (error) {
       setRegFormError(error.message);
     } finally {
@@ -68,7 +67,7 @@ export default function RegisterPage() {
                     label="name"
                   />
                   <input
-                    className="modal__input login"
+                    className="modal__input-login"
                     type="text"
                     name="login"
                     id="loginReg"

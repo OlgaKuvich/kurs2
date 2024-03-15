@@ -25,7 +25,7 @@ function PopExit() {
               <PopExitGroup>
                 <PopExitYes className="_hover01" id="exitYes">
                   <PopExitYesA>
-                    <Link to={AppRoutes.LOGIN}>Да, выйти</Link>{" "}
+                    <Link className="link" to={AppRoutes.LOGIN}>Да, выйти</Link>{" "}
                   </PopExitYesA>
                 </PopExitYes>
                 <PopExitNo className="_hover03" id="exitNo">

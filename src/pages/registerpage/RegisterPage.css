@@ -92,7 +92,7 @@ a {
   align-items: center;
   justify-content: center;
 }
-.modal__form-login input:not(:last-child) {
+.modal__form-login input:first-child {
   margin-bottom: 7px;
 }
 .modal__input {
@@ -102,6 +102,15 @@ a {
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   outline: none;
   padding: 10px 8px;
+}
+.modal__input-login {
+  width: 100%;
+  min-width: 100%;
+  border-radius: 8px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  outline: none;
+  padding: 10px 8px;
+  margin-bottom: 7px;
 }
 .modal__input::-moz-placeholder {
   font-family: "Roboto", sans-serif;

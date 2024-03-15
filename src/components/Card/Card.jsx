@@ -15,11 +15,11 @@ import {
   CardsWrapper,
 } from "./Card.styled";
 import { format } from "date-fns";
-import { useContext } from "react";
-import { TasksContext } from "../../contexts/tasks";
+// import { useContext } from "react";
+// import { TasksContext } from "../../contexts/tasks";
 
 function Card({ topic, title, date, id }) {
-  const { setTasks } = useContext(TasksContext);
+  // const { setTasks } = useContext(TasksContext);
 
   let color;
   switch (topic) {
