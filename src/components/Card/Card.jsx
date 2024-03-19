@@ -35,7 +35,7 @@ function Card({ theme, name, date, id }) {
     <CardsItem>
       <CardsWrapper>
         <CardGroup>
-          {console.log(theme)}
+          {/* {console.log(theme)} */}
           <CardTheme $themeColor={color}>
             <CardThemeText>{theme}</CardThemeText>
           </CardTheme>

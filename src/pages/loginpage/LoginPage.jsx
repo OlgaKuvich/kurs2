@@ -1,8 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 import "./LoginPage.css";
+import { useState } from "react";
+import { login } from "../../api";
 
-export default function LoginPage() {
+export default function LoginPage({ setUserData }) {
+  let navigate = useNavigate();
+
+  const loginForm = {
+    login: ``,
+    password: ``,
+  };
+
+  const [loginData, setLoginData] = useState(loginForm);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await login(loginData)
+      .then((data) => {
+        console.log(data);
+        setUserData(data.user);
+      })
+      .then(() => {
+        navigate(AppRoutes.HOME);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target; // Извлекаем имя поля и его значение
+
+    setLoginData({
+      ...loginData, // Копируем текущие данные из состояния
+      [name]: value, // Обновляем нужное поле
+    });
+  };
+
   return (
     <div className="wrapper">
       <div className="container-signin">
@@ -14,6 +49,8 @@ export default function LoginPage() {
             <form className="modal__form-login" id="formLogIn" action="#">
               <input
                 className="modal__input"
+                value={loginData.login}
+                onChange={handleInputChange}
                 type="text"
                 name="login"
                 id="formlogin"
@@ -21,17 +58,23 @@ export default function LoginPage() {
               />
               <input
                 className="modal__input"
-                type="password"
+                value={loginData.password}
+                onChange={handleInputChange}
+                type="text"
                 name="password"
                 id="formpassword"
                 placeholder="Пароль"
               />
-              <button className="modal__btn-enter _hover01" id="btnEnter">
-                <Link to={AppRoutes.HOME}>Войти</Link>
+              <button
+                onClick={handleLogin}
+                className="modal__btn-enter _hover01"
+                id="btnEnter"
+              >
+                Войти
               </button>
               <div className="modal__form-group">
                 <p>Нужно зарегистрироваться?</p>
-                <Link to={AppRoutes.PEGISTER}>Регистрируйтесь здесь</Link>
+                <Link to={AppRoutes.REGISTER}>Регистрируйтесь здесь</Link>
               </div>
             </form>
           </div>
