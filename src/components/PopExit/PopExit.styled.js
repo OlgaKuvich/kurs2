@@ -62,7 +62,7 @@ export const PopExitGroup = styled.div`
 export const PopExitYes = styled.button`
   width: 153px;
   height: 30px;
-  background-color: #565eef;
+  background-color: #565EEF;
   border-radius: 4px;
   border: none;
   outline: none;
@@ -73,11 +73,13 @@ export const PopExitYes = styled.button`
   line-height: 21px;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #ffffff;
+  color: #FFFFFF;
   margin-right: 10px;
   &:hover {
     background-color: #33399b;
+    color: #FFFFFF
   }
+
   @media (max-width: ${breakpoints.sm}px) {
     width: 100%;
     height: 40px;
@@ -89,7 +91,7 @@ export const PopExitYes = styled.button`
 export const PopExitYesA = styled.a`
   width: 100%;
   height: 100%;
-  color: #ffffff;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,10 +112,6 @@ export const PopExitNo = styled.button`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #ffffff;
-  &:hover {
-    background-color: #33399b;
-    color: #ffffff;
-  }
   @media (max-width: ${breakpoints.sm}px) {
     width: 100%;
     height: 40px;

@@ -12,7 +12,7 @@ import {
   PopExitYesA,
 } from "./PopExit.styled";
 
-function PopExit({ toggleIsLoggedIn }) {
+function PopExit() {
   return (
     <PopExitItem id="popExit">
       <PopExitContainer>
@@ -21,21 +21,20 @@ function PopExit({ toggleIsLoggedIn }) {
             <h2>Выйти из аккаунта?</h2>
           </PopExitTtl>
           <form className="pop-exit__form" id="formExit" action="#">
-            {/*"pop-exit__form" - нет такого класса в стилях App.css */}
-            <PopExitGroup>
-              <PopExitYes id="exitYes">
-                <PopExitYesA>
-                  <Link to={AppRoutes.LOGIN} onClick={toggleIsLoggedIn}>
-                    Да, выйти
-                  </Link>{" "}
-                </PopExitYesA>
-              </PopExitYes>
-              <PopExitNo id="exitNo">
-                <PopExitNoA>
-                  <Link to={AppRoutes.HOME}>Нет, остаться</Link>{" "}
-                </PopExitNoA>
-              </PopExitNo>
-            </PopExitGroup>
+            <div className="pop-exit__form-group">
+              <PopExitGroup>
+                <PopExitYes className="_hover01" id="exitYes">
+                  <PopExitYesA>
+                    <Link className="link" to={AppRoutes.LOGIN}>Да, выйти</Link>{" "}
+                  </PopExitYesA>
+                </PopExitYes>
+                <PopExitNo className="_hover03" id="exitNo">
+                  <PopExitNoA>
+                    <Link to={AppRoutes.HOME}>Нет, остаться</Link>{" "}
+                  </PopExitNoA>
+                </PopExitNo>
+              </PopExitGroup>
+            </div>
           </form>
         </PopExitBlock>
       </PopExitContainer>

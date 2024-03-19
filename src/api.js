@@ -18,7 +18,7 @@ export async function login({ login, password }) {
   return data;
 }
 
-export async function getTasks({ token }) {
+export async function getTasks() {
   const response = await fetch(API_URL, {
     method: "GET",
     headers: {
@@ -34,19 +34,82 @@ export async function getTasks({ token }) {
 }
 
 export async function registerUser({ login, name, password }) {
-    const response = await fetch(API_URL_USER + `/login`, {
-      method: "POST",
-      body: JSON.stringify({
-        login,
-        name,
-        password,
-      }),
-    });
-  
-    if (response.status === 400) {
-      throw new Error(alert("Пользователь с таким именем уже существует"));
-    }
-    const user = await response.json();
-    return user;
-  }
+  const response = await fetch(API_URL_USER + `/login`, {
+    method: "POST",
+    body: JSON.stringify({
+      login,
+      name,
+      password,
+    }),
+  });
 
+  if (response.status === 400) {
+    throw new Error(alert("Пользователь с таким именем уже существует"));
+  }
+  const user = await response.json();
+  return user;
+}
+
+export async function createTasks(inputData) {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(inputData),
+  });
+
+  if (response.status === 400) {
+    throw new Error(alert("Введите все данные"));
+  } else {
+    const data = await response.json();
+    return data;
+  }
+}
+
+export async function deleteTasks(id) {
+  const response = await fetch(API_URL + `/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.status >= 400) {
+    throw new Error(alert("Ошибка удаления"));
+  } else {
+    const data = await response.json();
+    return data;
+  }
+}
+
+export async function editTasks({
+  token,
+  id,
+  title,
+  topic,
+  status,
+  description,
+  date,
+}) {
+  const response = await fetch(API_URL + `/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      title,
+      topic,
+      status,
+      description,
+      date,
+    }),
+  });
+
+  if (response.status >= 400) {
+    throw new Error(alert("Ошибка редактирования"));
+  } else {
+    const data = await response.json();
+    return data;
+  }
+}

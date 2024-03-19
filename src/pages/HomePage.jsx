@@ -4,16 +4,20 @@ import Main from "../components/Main/Main";
 import Wrapper from "../components/Wrapper/Wrapper";
 import { useEffect, useState } from "react";
 import { getTasks } from "../api";
+import { useUser } from "../hooks/useUser";
+import { useContext } from "react";
+import { TasksContext } from "../contexts/tasks";
 
-export default function HomePage({ userData }) {
-  const [cards, setCards] = useState(null);
+export default function HomePage() {
+  const {userData} = useUser();
+  const {tasks, setTasks} = useContext(TasksContext);
   const [isLoded, setIsLoded] = useState(true);
   const [getCardsError, setGetCardsError] = useState(null);
+  
   useEffect(() => {
     getTasks({token: userData.token})
     .then((data) => {
-      console.log(data.tasks);
-      setCards(data.tasks);
+      setTasks(data.tasks);
     })
     .catch((error) => {
       setGetCardsError(error.message);
@@ -24,10 +28,10 @@ export default function HomePage({ userData }) {
   }, [userData]);
 
   function addCard() {
-    setCards([
-      ...cards,
+    setTasks([
+      ...tasks,
       {
-        id: cards.length + 1,
+        id: tasks.length + 1,
         theme: "Web Design",
         title: "Название задачи",
         date: "30.10.23",
@@ -43,7 +47,7 @@ export default function HomePage({ userData }) {
         {getCardsError ? (
           <p style={{ color: "red",  weight: 400, size: 14 }}>{getCardsError}</p>
         ) : (
-        <Main isLoded={isLoded} cardList={cards} />
+        <Main isLoded={isLoded} cardList={tasks} />
         )}
       </Wrapper>
     </>

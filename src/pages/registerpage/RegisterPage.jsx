@@ -1,11 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 import { useState } from "react";
 import { registerUser } from "../../api";
+import { useUser } from "../../hooks/useUser";
+import "./RegisterPage.css";
 
-export default function RegisterPage({ setUserDate }) {
-  let navigate = useNavigate();
-
+export default function RegisterPage() {
+  const { loginUser } = useUser;
   const registerForm = {
     login: "",
     name: "",
@@ -14,7 +15,6 @@ export default function RegisterPage({ setUserDate }) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target; // Извлекаем имя поля и его значение
-
     setRegisterData({
       ...registerData, // Копируем текущие данные из состояния
       [name]: value, // Обновляем нужное поле
@@ -34,9 +34,8 @@ export default function RegisterPage({ setUserDate }) {
         name: registerData.name,
         password: registerData.password,
       });
-      setUserDate(regUser.user);
+      loginUser(regUser.user);
       alert("Пользователь успешно создан");
-      navigate(AppRoutes.HOME);
     } catch (error) {
       setRegFormError(error.message);
     } finally {
@@ -68,7 +67,7 @@ export default function RegisterPage({ setUserDate }) {
                     label="name"
                   />
                   <input
-                    className="modal__input login"
+                    className="modal__input-login"
                     type="text"
                     name="login"
                     id="loginReg"
